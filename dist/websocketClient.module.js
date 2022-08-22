@@ -12,7 +12,7 @@ function $d2b38d6a7f8bb4d2$var$createEventEmitter() {
         }
     };
 }
-function $d2b38d6a7f8bb4d2$var$room(url, roomType, roomId) {
+function $d2b38d6a7f8bb4d2$var$createRoom(url, roomType, roomId) {
     const emitter = $d2b38d6a7f8bb4d2$var$createEventEmitter();
     const ws = new WebSocket(url + "/" + roomType + "/" + roomId);
     function handleMessage(event) {
@@ -42,14 +42,14 @@ function $d2b38d6a7f8bb4d2$var$room(url, roomType, roomId) {
         }
     };
 }
-function $d2b38d6a7f8bb4d2$export$388e0302ca0d9a41(url) {
+function $d2b38d6a7f8bb4d2$export$dba0604e35f48f71(url) {
     return {
-        room (roomType, roomId) {
-            return $d2b38d6a7f8bb4d2$var$room(url, roomType, roomId);
+        getRoom (roomType, roomId) {
+            return $d2b38d6a7f8bb4d2$var$createRoom(url, roomType, roomId);
         }
     };
 }
 
 
-export {$d2b38d6a7f8bb4d2$export$388e0302ca0d9a41 as client};
+export {$d2b38d6a7f8bb4d2$export$dba0604e35f48f71 as connectToWebSocketServer};
 //# sourceMappingURL=websocketClient.module.js.map

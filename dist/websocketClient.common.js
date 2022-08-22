@@ -2,7 +2,7 @@ function $parcel$export(e, n, v, s) {
   Object.defineProperty(e, n, {get: v, set: s, enumerable: true, configurable: true});
 }
 
-$parcel$export(module.exports, "client", () => $3c21965c92bb175f$export$388e0302ca0d9a41);
+$parcel$export(module.exports, "connectToWebSocketServer", () => $3c21965c92bb175f$export$dba0604e35f48f71);
 function $3c21965c92bb175f$var$createEventEmitter() {
     const callbacks = {};
     return {
@@ -17,7 +17,7 @@ function $3c21965c92bb175f$var$createEventEmitter() {
         }
     };
 }
-function $3c21965c92bb175f$var$room(url, roomType, roomId) {
+function $3c21965c92bb175f$var$createRoom(url, roomType, roomId) {
     const emitter = $3c21965c92bb175f$var$createEventEmitter();
     const ws = new WebSocket(url + "/" + roomType + "/" + roomId);
     function handleMessage(event) {
@@ -47,10 +47,10 @@ function $3c21965c92bb175f$var$room(url, roomType, roomId) {
         }
     };
 }
-function $3c21965c92bb175f$export$388e0302ca0d9a41(url) {
+function $3c21965c92bb175f$export$dba0604e35f48f71(url) {
     return {
-        room (roomType, roomId) {
-            return $3c21965c92bb175f$var$room(url, roomType, roomId);
+        getRoom (roomType, roomId) {
+            return $3c21965c92bb175f$var$createRoom(url, roomType, roomId);
         }
     };
 }

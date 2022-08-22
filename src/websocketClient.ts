@@ -18,7 +18,7 @@ function createEventEmitter() {
   };
 }
 
-function room(url: string, roomType: string, roomId: string) {
+function createRoom(url: string, roomType: string, roomId: string) {
   const emitter = createEventEmitter();
   const ws = new WebSocket(url + '/' + roomType + '/' + roomId);
 
@@ -56,10 +56,10 @@ function room(url: string, roomType: string, roomId: string) {
   };
 }
 
-export function client(url: string) {
+export function connectToWebSocketServer(url: string) {
   return {
-    room(roomType: string, roomId: string) {
-      return room(url, roomType, roomId);
+    getRoom(roomType: string, roomId: string) {
+      return createRoom(url, roomType, roomId);
     }
   };
 }

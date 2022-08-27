@@ -1,6 +1,6 @@
 {
   "name": "@ianlucas/websocket-client",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Client companion for @ianlucas/websocket.",
   "source": "src/websocketClient.ts",
   "main": "dist/websocketClient.common.js",

@@ -52,6 +52,10 @@ function createRoom(url: string, roomType: string, roomId: string) {
           value
         })
       );
+    },
+
+    close() {
+      ws.close();
     }
   };
 }

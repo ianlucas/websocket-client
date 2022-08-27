@@ -44,6 +44,9 @@ function $3c21965c92bb175f$var$createRoom(url, roomType, roomId) {
                 type: type,
                 value: value
             }));
+        },
+        close () {
+            ws.close();
         }
     };
 }

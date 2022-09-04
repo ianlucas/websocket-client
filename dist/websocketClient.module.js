@@ -34,6 +34,9 @@ function $d2b38d6a7f8bb4d2$var$createRoom(url, roomType, roomId) {
         onStateChange (callback) {
             emitter.on("state", callback);
         },
+        onClose (callback) {
+            emitter.on("close", callback);
+        },
         send (type, value) {
             ws.send(JSON.stringify({
                 type: type,

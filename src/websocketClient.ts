@@ -45,6 +45,10 @@ function createRoom(url: string, roomType: string, roomId: string) {
       emitter.on('state', callback);
     },
 
+    onClose(callback: () => void) {
+      emitter.on('close', callback);
+    },
+
     send(type: string, value: any) {
       ws.send(
         JSON.stringify({

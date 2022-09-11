@@ -21,12 +21,18 @@ function createEventEmitter() {
 function createRoom(url: string, roomType: string, roomId: string) {
   const emitter = createEventEmitter();
   const ws = new WebSocket(url + '/' + roomType + '/' + roomId);
+  let state = {};
 
   function handleMessage(event: MessageEvent) {
     const data = JSON.parse(event.data);
     switch (data.type) {
+      case 'patch':
+        Object.assign(state, data.value);
+        emitter.emit('state', state);
+        break;
       case 'state':
-        emitter.emit('state', data.value);
+        state = data.value;
+        emitter.emit('state', state);
         break;
       default:
         throw new Error('Invalid message type sent by server.');

@@ -25,13 +25,16 @@ function createRoom(url: string, roomType: string, roomId: string) {
 
   function handleMessage(event: MessageEvent) {
     const data = JSON.parse(event.data);
+    console.log(data);
     switch (data.type) {
       case 'patch':
         Object.assign(state, data.value);
+        console.log(state, data.value);
         emitter.emit('state', state);
         break;
       case 'state':
         state = data.value;
+        console.log(state, data.value);
         emitter.emit('state', state);
         break;
       default:

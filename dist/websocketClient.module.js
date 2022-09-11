@@ -18,13 +18,16 @@ function $d2b38d6a7f8bb4d2$var$createRoom(url, roomType, roomId) {
     let state = {};
     function handleMessage(event) {
         const data = JSON.parse(event.data);
+        console.log(data);
         switch(data.type){
             case "patch":
                 Object.assign(state, data.value);
+                console.log(state, data.value);
                 emitter.emit("state", state);
                 break;
             case "state":
                 state = data.value;
+                console.log(state, data.value);
                 emitter.emit("state", state);
                 break;
             default:
